@@ -1,0 +1,97 @@
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content white-text">
+        <div class="row">
+          <div class="col s6">
+            <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
+              <div class="row">
+                <div class="input-field col s12">
+                  <!-- <input type="text" name="uname" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.uname" placeholder="Enter Username" required> -->
+                  <input type="text" name="pname" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.pname" placeholder="Enter Patient Name" required>
+                  <label>Patient Name :
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="role" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.role" placeholder="Assign To" required>
+                  <label>Assigned To :
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="visitDate" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.visitDate" placeholder="Enter Visit Date (DD/MM/YYYY)" required>
+                  <label>Visit Date :
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+              </div> -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <!-- <input type="text" name="joinDate" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.joinDate" placeholder="Enter JoinDate (DD/MM/YYYY)"> -->
+                  <input type="text" name="doctorName" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.doctorName" placeholder="Enter Doctor Name">
+
+                  <label>Doctor Name :
+                    <!-- <label class="red-text">*</label> -->
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <!-- <input type="text" name="joinDate" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.joinDate" placeholder="Enter JoinDate (DD/MM/YYYY)"> -->
+                  <input type="text" name="visitDetails" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.visitDetails" placeholder="Enter Visit Details">
+
+                  <label>Visit Details :
+                    <!-- <label class="red-text">*</label> -->
+                  </label>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="input-field col s12">
+                  <button class="btn btn-custom right" type="button" (click)="resetForm(employeeForm)">Reset</button>
+                  <button class="btn btn-custom right" [disabled]="!employeeForm.valid"type="submit">Submit WorkOrder</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col s1"></div>
+          <div class="col s5">
+            <table class="responsive-table highlight">
+              <thead>
+                <tr>
+                  <th>Patient Name</th>
+                  <!-- <th>Password</th> -->
+                  <!-- <th>Visit Date</th> -->
+                  <th>Doctor Name</th>
+                  <th>Assigned To</th>
+                  <!-- <th></th> -->
+                </tr>
+              </thead>
+              <tr *ngFor="let emp of employeeService.employees">
+                <td>{{emp.pname}}</td>
+                <!-- <td>{{emp.password}}</td> -->
+                <!-- <td>{{emp.visitDate}}</td> -->
+                <td>{{emp.doctorName}}</td>
+                <td>{{emp.role}}</td>
+                <td>
+                  <a class="action-btn" (click)="onEdit(emp)">
+                    <i class="material-icons">edit</i>
+                  </a>
+                  <a class="action-btn" (click)="onDelete(emp._id,employeeForm)">
+                    <i class="material-icons">delete</i>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
