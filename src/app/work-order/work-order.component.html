@@ -1,0 +1,48 @@
+
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+        
+      <div class="card-content white-text">
+          <h5>WorkOrder from API</h5>
+          <div class="col s5">
+              <table class="responsive-table highlight">
+                <thead>
+                  <tr>
+                    <th>Patient Name</th>
+                    
+                    <th>Doctor Name</th>
+                    <th>Visit Details</th>
+                    
+                  </tr>
+                </thead>
+                <tr *ngFor="let wo of workorderService.workorders">
+                  <td>{{wo.pname}}</td>
+                  
+                  <td>{{wo.doctorName}}</td>
+                  <td>{{wo.visitDetails}}</td>
+                  
+                </tr>
+              </table>
+            </div>
+        <div class="row">
+          <div class="col s6">
+            <form #workorderForm="ngForm" (ngSubmit)="onSubmit(workorderForm)">
+              <!-- <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="workorderService.selectedWorkorder._id"> -->
+              <button class="btn btn-custom bottom"  type="submit" (click)="onSubmit(ngForm)">Import</button>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <!-- <button class="btn btn-custom right" type="button" (click)="resetForm(workorderForm)">Reset</button> -->
+                  <button class="btn btn-custom bottom" [disabled]="!workorderForm.valid" type="submit" >Import WorkOrder</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col s1"></div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

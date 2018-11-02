@@ -6,13 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { HttpClientModule } from '@angular/common/http';
-import { WorkorderComponent } from './workorder/workorder.component';
+import { RegisterComponent } from './register/register.component';
+import { WorkOrderComponent } from './work-order/work-order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeComponent,
-    WorkorderComponent
+    RegisterComponent,
+    WorkOrderComponent
   ],
   imports: [
     BrowserModule,

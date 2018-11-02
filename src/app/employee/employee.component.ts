@@ -15,10 +15,10 @@ declare var M:any;
 export class EmployeeComponent implements OnInit {
 
   constructor(private employeeService: EmployeeService) { }
-  roles = [
-    {id:1, value:'caller'},
-    {id:2, value: 'analyst'}
-  ]
+  // roles = [
+  //   {id:1, value:'caller'},
+  //   {id:2, value: 'analyst'}
+  // ]
   ngOnInit() {
     this.resetForm();
     this.refreshEmployeeList();
@@ -26,6 +26,7 @@ export class EmployeeComponent implements OnInit {
   resetForm(form?: NgForm) {
     if(form) {
       form.reset();
+      this.refreshEmployeeList();
     }
     this.employeeService.selectedEmployee = {
       _id: "",
