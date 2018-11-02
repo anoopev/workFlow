@@ -7,7 +7,7 @@ var employeeController = require('./controllers/employeeController.js');
 var workorderController = require('./controllers/workorderController.js');
 const path = require('path');
 
-
+res.setHeader('Access-Control-Allow-Origin', 'https://work2.herokuapp.com/')
 var app = express();
 app.use(express.static(__dirname+'/dist/ngApp3'));
 app.get('/*', function(req,res) {
